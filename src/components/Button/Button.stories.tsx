@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 
 import { Button } from "./index";
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: "Button",
   component: Button,
   parameters: {
@@ -17,12 +17,14 @@ const meta = {
     },
     variant: {
       options: [
-        "primary",
-        "seconary",
+        "default",
+        "secondary",
         "outline",
+        "danger",
         "destructive",
         "success",
         "ghost",
+        "link",
       ],
       control: { type: "select" },
     },
@@ -35,11 +37,11 @@ const meta = {
   },
   args: {
     size: "default",
-    variant: "primary",
+    variant: "default",
     children: "Button",
     onClick: fn(),
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -47,7 +49,7 @@ type Story = StoryObj<typeof meta>;
 export const DefaultButton: Story = {
   args: {
     size: "default",
-    variant: "primary",
+    variant: "default",
     children: "Get started",
   },
 };
